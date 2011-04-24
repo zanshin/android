@@ -15,6 +15,11 @@
     <string name="hints_title">Hints</string>
     <string name="hints_summary">Show hints during play</string>
 
+    <string name="new_game_title">Difficulty</string>
+    <string name="easy_label">Easy</string>
+    <string name="medium_label">Medium</string>
+    <string name="hard_label">Hard</string>
+
     <string name="about_title">About Android Sudoku</string>
     <string name="about_text">\
 Sudoku is a logic-based number placement puzzle.
