@@ -1,16 +1,16 @@
 package net.zanshin.sudoku;
 
 import android.app.Activity;
-import android.os.Bundle;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.view.View;
-import android.view.View.OnClickListener;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
 
 /**
  * Created by IntelliJ IDEA.
@@ -75,6 +75,17 @@ public class Sudoku extends Activity implements OnClickListener {
         return false;
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Music.play(this, R.raw.main);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Music.stop(this);
+    }
     private void openNewGameDialog() {
         new AlertDialog.Builder(this)
             .setTitle(R.string.new_game_title)
