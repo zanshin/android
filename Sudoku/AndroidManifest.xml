@@ -27,5 +27,6 @@
             android:name=".Game"
             android:label="@string/game_title" />
         <activity android:name=".PuzzleView"/>
+        <activity android:name=".Keypad" android:label="Dialog"/>
     </application>
 </manifest> 

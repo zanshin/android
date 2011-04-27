@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 
+
 /**
  * Created by IntelliJ IDEA.
  * User: mark
@@ -68,7 +69,7 @@ public class PuzzleView extends View {
             canvas.drawLine(0, i * height, getWidth(), i * height, light);
             canvas.drawLine(0, i * height + 1, getWidth(), i * height + 1, hilite);
             canvas.drawLine(i * width, 0, i * width, getHeight(), light);
-            canvas.drawLine((i * width + 1, 0, i * width + 1, getHeight(), hilite));
+            canvas.drawLine(i * width + 1, 0, i * width + 1, getHeight(), hilite);
         }
 
         // draw the major grid lines
@@ -134,7 +135,7 @@ public class PuzzleView extends View {
             case KeyEvent.KEYCODE_DPAD_UP:
                 select(selX, selY - 1);
                 break;
-            case KeyEvent.KEYCODE_DPAD_DOWN
+            case KeyEvent.KEYCODE_DPAD_DOWN:
                 select(selX, selY + 1);
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT:
@@ -156,9 +157,8 @@ public class PuzzleView extends View {
             case KeyEvent.KEYCODE_9: setSelectedTile(9); break;
             case KeyEvent.KEYCODE_ENTER:
             case KeyEvent.KEYCODE_DPAD_CENTER:
-                game.ShowKeypadOrError(selX, selY);
+                game.showKeypadOrError(selX, selY);
                 break;
-
             default:
                 return super.onKeyDown(keyCode, event);
         }
