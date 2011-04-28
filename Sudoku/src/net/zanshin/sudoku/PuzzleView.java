@@ -6,6 +6,8 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Paint.FontMetrics;
 import android.graphics.Paint.Style;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -22,6 +24,12 @@ import android.view.animation.AnimationUtils;
  */
 public class PuzzleView extends View {
     private static final String TAG = "Sudoku";
+
+    private static final String SELX = "selX";
+    private static final String SELY = "selY";
+    private static final String VIEW_STATE = "viewState";
+    private static final int ID = 42;
+
     private final Game game;
 
     private float width;        // width of one tile
@@ -35,6 +43,7 @@ public class PuzzleView extends View {
         this.game = (Game) context;
         setFocusable(true);
         setFocusableInTouchMode(true);
+        setId(ID);
     }
 
     @Override
@@ -177,6 +186,25 @@ public class PuzzleView extends View {
         game.showKeypadOrError(selX, selY);
         Log.d(TAG, "onTouchEvent: x " + selX + ", y " + selY);
         return true;
+    }
+
+    @Override
+    protected Parcelable onSaveInstanceState() {
+        Parcelable p = super.onSaveInstanceState();
+        Log.d(TAG, "onSaveInstanceState");
+        Bundle bundle = new Bundle();
+        bundle.putInt(SELX, selX);
+        bundle.putInt(SELY, selY);
+        bundle.putParcelable(VIEW_STATE, p);
+        return bundle;
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Parcelable state) {
+        Log.d(TAG, "onRestoreInstanceState");
+        Bundle bundle = (Bundle) state;
+        select(bundle.getInt(SELX), bundle.getInt(SELY));
+        super.onRestoreInstanceState(bundle.<Parcelable>getParcelable(VIEW_STATE));
     }
 
     private void getRect(int x, int y, Rect rect) {
