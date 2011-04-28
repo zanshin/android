@@ -16,9 +16,13 @@ public class Music {
     /** stop old song and start new one */
     public static void play(Context context, int resource) {
         stop(context);
-        mp = MediaPlayer.create(context, resource);
-        mp.setLooping(true);
-        mp.start();
+
+        // start music only if not disabled in preferences
+        if (Prefs.getMusic(context)) {
+            mp = MediaPlayer.create(context, resource);
+            mp.setLooping(true);
+            mp.start();
+        }
     }
 
     /** stop the music */
