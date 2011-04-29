@@ -72,12 +72,6 @@ public class Game extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-        Music.stop(this);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
         Log.d(TAG, "onPause");
         Music.stop(this);
 

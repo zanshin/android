@@ -16,7 +16,7 @@ public class Video extends Activity {
         VideoView video = (VideoView) findViewById(R.id.video);
 
         // load and start the movie
-        video.setVideoPath("/data/samplevideo.3gp");
+        video.setVideoPath("/sdcard/samplevideo.3gp");
         video.start();
     }
 }
