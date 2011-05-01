@@ -3,6 +3,8 @@
       package="net.zanshin.browserview"
       android:versionCode="1"
       android:versionName="1.0">
+    <uses-permission
+        android:name="android.permission.INTERNET" />
     <application android:label="BrowserView" android:icon="@drawable/icon">
         <activity android:name="BrowserView"
                   android:label="@string/app_name">
