@@ -58,8 +58,8 @@ public class Translate extends Activity {
         fromSpinner = (Spinner) findViewById(R.id.from_language);
         toSpinner = (Spinner) findViewById(R.id.to_language);
         originalText = (EditText) findViewById(R.id.original_text);
-        translatedText = (EditText) findViewById(R.id.translated_text);
-        retranslatedText = (EditText) findViewById(R.id.retranslated_text);
+        translatedText = (TextView) findViewById(R.id.translated_text);
+        retranslatedText = (TextView) findViewById(R.id.retranslated_text);
     }
 
     private void setAdapters() {
